@@ -14,6 +14,9 @@ COPY enable-var-www-html-htaccess.conf /etc/apache2/conf-enabled/
 COPY run_apache.sh /var/www/
 RUN a2enmod rewrite 
 
+# Set the correct access right for PHP5 session dir
+
+RUN chmod 733 /var/lib/php5 
 
 #USER www-data
 
